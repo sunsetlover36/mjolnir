@@ -69,3 +69,7 @@ func main() {
 	fmt.Printf("Token Balance: %v\n", balance)
 }
 ```
+
+## ✅ TODO
+- [ ] Refactor all methods to use pointers for params
+- [ ] Improved and more understandable aggregated error logs
