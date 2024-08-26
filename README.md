@@ -4,8 +4,13 @@ Go package to interact with EVM networks.
 ## ⚠️ Warning
 The current implementation may not be suitable for production use!
 
-## 📚 Example Usage
+## 🎨 Inspiration
+This project is inspired by [Viem](https://github.com/wevm/viem). The design and structure of the client closely resemble their approach, aiming to bring similar ease of use and flexibility to Go developers working with EVM networks.
 
+## 📖 Documentation
+Documentation is coming soon! Stay tuned for detailed guides and examples.
+
+## 📚 Example Usage
 Here’s a basic example of how to use this package:
 
 ```go
@@ -16,7 +21,6 @@ import (
 	"log"
 
 	"github.com/sunsetlover36/mjolnir"
-	"github.com/sunsetlover36/mjolnir/internal"
 	"github.com/sunsetlover36/mjolnir/types"
 )
 
@@ -29,13 +33,13 @@ func main() {
 
 	// Initialize a new wallet client with specified chain and RPC URL
 	wc := mjolnir.NewWalletClient(types.NewWalletClientParams{
-		Chain:   internal.Chains["Base"], // Set the correct chain
+		Chain:   mjolnir.Chains["Base"],  // Set the correct chain
 		RpcUrl:  "YOUR_RPC_URL",           // Replace with your actual RPC URL
 		Account: account,
 	})
 
 	// Parse the ether value (in this case, 0.1 ETH)
-	parsedEther, err := internal.ParseEther("0.1")
+	parsedEther, err := mjolnir.ParseEther("0.1")
 	if err != nil {
 		log.Fatalf("Failed to parse ether value: %v", err)
 	}
@@ -65,6 +69,3 @@ func main() {
 	fmt.Printf("Token Balance: %v\n", balance)
 }
 ```
-
-## 📖 Documentation
-Documentation is coming soon! Stay tuned for detailed guides and examples.
