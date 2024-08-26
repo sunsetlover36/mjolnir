@@ -17,8 +17,10 @@ Here’s a basic example of how to use this package:
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"log"
+	"math/big"
 
 	"github.com/sunsetlover36/mjolnir"
 	"github.com/sunsetlover36/mjolnir/types"
@@ -57,7 +59,7 @@ func main() {
 	fmt.Println("Transaction Hash:", txHash)
 
 	// Read the balance from a token contract
-	balance, err := wc.ReadContract(types.ReadContractParams{
+	balanceBytes, err := wc.ReadContract(types.ReadContractParams{
 		Address:      "TOKEN_ADDRESS", // Replace with the token contract address
 		Abi:          TOKEN_ABI,       // Replace with the ABI of the token contract
 		FunctionName: "balanceOf",     // Function to call on the contract
@@ -65,6 +67,11 @@ func main() {
 	})
 	if err != nil {
 		log.Fatalf("Failed to read contract: %v", err)
+	}
+
+	var balance *big.Int
+	if err := json.Unmarshal(balanceBytes, &balance); err != nil {
+		log.Fatalf("Failed to unmarshal balanceBytes: %v", err)
 	}
 	fmt.Printf("Token Balance: %v\n", balance)
 }
