@@ -19,3 +19,9 @@ func ParseEther(etherStr string) (*big.Int, error) {
 func FormatEther(wei *big.Int) string {
 	return internal.FormatEther(wei)
 }
+func ParseGwei(gweiStr string) (*big.Int, error) {
+	return internal.ParseGwei(gweiStr)
+}
+func FormatGwei(wei *big.Int) string {
+	return internal.FormatGwei(wei)
+}
