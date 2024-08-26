@@ -33,7 +33,7 @@ func main() {
 
 	// Initialize a new wallet client with specified chain and RPC URL
 	wc := mjolnir.NewWalletClient(types.NewWalletClientParams{
-		Chain:   mjolnir.Chains["Base"],  // Set the correct chain
+		Chain:   mjolnir.Chains["Base"],   // Set the correct chain
 		RpcUrl:  "YOUR_RPC_URL",           // Replace with your actual RPC URL
 		Account: account,
 	})
